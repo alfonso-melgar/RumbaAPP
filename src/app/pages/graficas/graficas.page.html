@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Graficas</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" [text]="Regresar"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-label> Velocidad </ion-label>
+  <canvas id="Velocidad" style="width : 500px; height: 300px;">
+    {{chartVelocidad}}
+  </canvas>
+  <br>
+  <ion-label> Distancia</ion-label>
+  <canvas id="Distancia" style="width : 500px; height: 300px;">
+    {{chartDistancia}}
+  </canvas>
+
+</ion-content>

@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>RoombaGT 2099</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content center text-center>
+  <br>
+
+  <ion-item [href]="'/graficas'" routerDirection="forward">
+    <ion-icon name="pie"></ion-icon> Gráficas
+  </ion-item>
+  <br>
+  <ion-label>
+    <ion-icon name="grid"></ion-icon> <b>Datos</b>
+  </ion-label>
+  <br>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col><b>Velocidad (cm/s)</b></ion-col>
+      <ion-col><b>Distancia (cm) </b></ion-col>
+      <ion-col><b>Tiempo de Viaje (s)</b></ion-col>
+      <ion-col><b>Objetos evadidos </b></ion-col>
+      <ion-col><b>Tiempo de Decision (s)</b></ion-col>
+      <ion-col><b>Fecha y hora</b></ion-col>
+    </ion-row>
+    <ion-row *ngFor="let d of todos" >
+      <ion-col>{{d.velocidad}}</ion-col>
+      <ion-col>{{d.distancia}}</ion-col>
+      <ion-col>{{d.tViaje}}</ion-col>
+      <ion-col>{{d.objetos}}</ion-col>
+      <ion-col>{{d.tDecision}}</ion-col>
+      <ion-col>{{d.logTime}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!--
+  <ion-list *ngFor="let dato of datos">
+    <ion-item>
+      <b>Velocidad : </b> {{dato.velocidad}}
+    </ion-item>
+
+    <ion-item>
+      <b>Distancia : </b> {{dato.distancia}}
+    </ion-item>
+
+    <ion-item>
+      <b>Tiempo total de viaje : </b> {{dato.tViaje}}
+    </ion-item>
+
+    <ion-item>
+      <b>Objetos evadidos : </b> {{dato.objetos}}
+    </ion-item>
+
+    <ion-item>
+      <b>Tiempo de toma de decision : </b> {{dato.tDecision}}
+    </ion-item>
+
+  </ion-list>
+  
+  <br>
+  <ion-label><b>Datos</b></ion-label>
+  <ion-list>
+    <ion-item [href]="'/velocidad'" routerDirection="forward">
+      Velocidad
+    </ion-item>
+
+    <ion-item href="\distancia">
+      Distancia
+    </ion-item>
+
+    <ion-item href="\tiempoViaje">
+      Tiempo total de Viaje
+    </ion-item>
+
+    <ion-item href="\objetos">
+      Objetos evadidos
+    </ion-item>
+
+    <ion-item href="\tiempoDecision">
+      Tiempo de toma de decision
+    </ion-item>
+  </ion-list>
+-->
+
+
+
+
+
+
+</ion-content>
