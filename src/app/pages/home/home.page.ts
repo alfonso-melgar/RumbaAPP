@@ -19,12 +19,12 @@ export class HomePage implements OnInit {
   checkUpdate() {
     this.rumbaService.getLastRead().subscribe(data => {
       this.datos = data;
-      console.log(this.datos);
+      //console.log(this.datos);
     })
 
     this.rumbaService.getDataRumba().subscribe(data => {
       this.todos = data;
-      console.log(this.todos);
+      //console.log(this.todos);
     })
 
   }

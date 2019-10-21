@@ -14,7 +14,7 @@ export class GraficasPage implements OnInit {
   public datos: Rumba;
   public interval: any;
   public chart: any;
-  public count:number;
+  public count: number;
   constructor(public rumbaService: RumbaService) {
 
   }
@@ -27,6 +27,7 @@ export class GraficasPage implements OnInit {
     if (this.cantPas != this.count) {
       this.graficarVelocidad();
       this.graficarDistancia();
+      this.graficarTomaDecision();
     }
   }
 
@@ -42,63 +43,27 @@ export class GraficasPage implements OnInit {
     }
   }
 
-  graficarVelocidad(){
-      let dataL:any = [];
-      let dataD:any = [];
-    
-      this.cantPas = this.count;
-      let i:number = 0;
-      let dato:any;
-      for(i = 0; i <this.cantPas; i++){
-        dataL.push(i+1);
-        dataD.push(+this.datos[i].velocidad);
-      }
-      console.log(dataL);
-      console.log(dataD);
+  graficarVelocidad() {
+    let dataL: any = [];
+    let dataD: any = [];
 
-      this.chart = new Chart('Velocidad', {
-        
-        type: 'line',
-        data: {
-          labels: dataL,
-          datasets: [
-            {
-              label: 'Velocidad (cm/s)',
-              fill: false,
-              data: dataD,
-              backgroundColor: '#168ede',
-              borderColor: '#168ede'
-            }
-          ]
-        },
-        options:{
-          
-        }      
-      });
-  }
-
-  graficarDistancia(){
-    let dataL:any = [];
-    let dataD:any = [];
-  
     this.cantPas = this.count;
-    let i:number = 0;
-    let dato:any;
-    for(i = 0; i <this.cantPas; i++){
-      dataL.push(i+1);
-      dataD.push(+this.datos[i].distancia);
+    let i: number = 0;
+    let dato: any;
+    for (i = 0; i < this.cantPas; i++) {
+      dataL.push(i + 1);
+      dataD.push(+this.datos[i].velocidad);
     }
-    console.log(dataL);
-    console.log(dataD);
 
-    this.chart = new Chart('Distancia', {
-      
+
+    this.chart = new Chart('Velocidad', {
+
       type: 'line',
       data: {
         labels: dataL,
         datasets: [
           {
-            label: 'Distancia (m)',
+            label: 'Velocidad (cm/s)',
             fill: false,
             data: dataD,
             backgroundColor: '#168ede',
@@ -106,9 +71,78 @@ export class GraficasPage implements OnInit {
           }
         ]
       },
-      options:{
-        
-      }      
+      options: {
+
+      }
     });
-}
+  }
+
+  graficarDistancia() {
+    let dataL: any = [];
+    let dataD: any = [];
+
+    this.cantPas = this.count;
+    let i: number = 0;
+    let dato: any;
+    for (i = 0; i < this.cantPas; i++) {
+      dataL.push(i + 1);
+      dataD.push(+this.datos[i].distancia);
+    }
+
+
+    this.chart = new Chart('Distancia', {
+
+      type: 'line',
+      data: {
+        labels: dataL,
+        datasets: [
+          {
+            label: 'Distancia (cm)',
+            fill: false,
+            data: dataD,
+            backgroundColor: '#168ede',
+            borderColor: '#168ede'
+          }
+        ]
+      },
+      options: {
+
+      }
+    });
+  }
+
+
+  graficarTomaDecision() {
+    let dataL: any = [];
+    let dataD: any = [];
+
+    this.cantPas = this.count;
+    let i: number = 0;
+    let dato: any;
+    for (i = 0; i < this.cantPas; i++) {
+      dataL.push(i + 1);
+      dataD.push(+this.datos[i].tDecision);
+    }
+
+
+    this.chart = new Chart('TomaDecision', {
+
+      type: 'line',
+      data: {
+        labels: dataL,
+        datasets: [
+          {
+            label: 'Tiempo toma de Decision (seg)',
+            fill: false,
+            data: dataD,
+            backgroundColor: '#168ede',
+            borderColor: '#168ede'
+          }
+        ]
+      },
+      options: {
+
+      }
+    });
+  }
 }
