@@ -27,7 +27,9 @@ export class GraficasPage implements OnInit {
     if (this.cantPas != this.count) {
       this.graficarVelocidad();
       this.graficarDistancia();
+      this.graficarTiempoViaje();
       this.graficarTomaDecision();
+      this.graficarObjetos();
     }
   }
 
@@ -112,7 +114,7 @@ export class GraficasPage implements OnInit {
   }
 
 
-  graficarTomaDecision() {
+  graficarTiempoViaje() {
     let dataL: any = [];
     let dataD: any = [];
 
@@ -121,7 +123,43 @@ export class GraficasPage implements OnInit {
     let dato: any;
     for (i = 0; i < this.cantPas; i++) {
       dataL.push(i + 1);
-      dataD.push(+this.datos[i].tDecision);
+      dataD.push(+this.datos[i].tViaje);
+    }
+
+
+    this.chart = new Chart('TiempoViaje', {
+
+      type: 'line',
+      data: {
+        labels: dataL,
+        datasets: [
+          {
+            label: 'Tiempo de Viaje (min)',
+            fill: false,
+            data: dataD,
+            backgroundColor: '#168ede',
+            borderColor: '#168ede'
+          }
+        ]
+      },
+      options: {
+
+      }
+    });
+  }
+
+  graficarTomaDecision() {
+    let dataL: any = [];
+    let dataD: any = [];
+
+    this.cantPas = this.count;
+    let i: number = 0;
+    let dato: any;
+    for (i = 0; i < this.cantPas; i++) {
+      if (+this.datos[i].tDecision > 0) {
+        dataL.push(i + 1);
+        dataD.push(+this.datos[i].tDecision);
+      }
     }
 
 
@@ -133,6 +171,40 @@ export class GraficasPage implements OnInit {
         datasets: [
           {
             label: 'Tiempo toma de Decision (seg)',
+            fill: false,
+            data: dataD,
+            backgroundColor: '#168ede',
+            borderColor: '#168ede'
+          }
+        ]
+      },
+      options: {
+
+      }
+    });
+  }
+
+  graficarObjetos() {
+    let dataL: any = [];
+    let dataD: any = [];
+
+    this.cantPas = this.count;
+    let i: number = 0;
+    let dato: any;
+    for (i = 0; i < this.cantPas; i++) {
+      dataL.push(i + 1);
+      dataD.push(+this.datos[i].objetos);
+    }
+
+
+    this.chart = new Chart('Objetos', {
+
+      type: 'line',
+      data: {
+        labels: dataL,
+        datasets: [
+          {
+            label: 'Objetos',
             fill: false,
             data: dataD,
             backgroundColor: '#168ede',
