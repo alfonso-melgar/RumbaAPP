@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Recorrido</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" [text]="Regresar"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-label> Mapa del Recorrido </ion-label>
+  <canvas id="Recorrido" style="width : 500px; height: 300px;">
+    {{chartRecorrido}}
+  </canvas>
+</ion-content>

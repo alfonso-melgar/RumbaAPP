@@ -22,5 +22,9 @@ export class RumbaService {
   getLastRead():Observable<any>{
     return this.http.get('https://rumba-255423.appspot.com/api/rumba?filter[order]=logTime%20DESC&filter[limit]=1');
   }
+
+  getCoords():Observable<any>{
+    return this.http.get('https://rumba-255423.appspot.com/api/coords');
+  }
 }
 
