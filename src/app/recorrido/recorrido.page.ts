@@ -50,7 +50,7 @@ export class RecorridoPage implements OnInit {
       dataD.push({ x: this.datos[i].x, y: this.datos[i].y });
     }
 
-    dataD = [
+   /* dataD = [
       { x: 0, y: 0 },
       { x: 0, y: 2 },
       { x: 0, y: 4 },
@@ -67,7 +67,7 @@ export class RecorridoPage implements OnInit {
       { x: 2, y: 4 },
       { x: 2, y: 2 },
       { x: 2, y: 0 }
-    ];
+    ];*/
 
 
     for (let i: number = 0; i < dataD.length; i++) {
