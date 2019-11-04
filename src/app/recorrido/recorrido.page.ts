@@ -42,12 +42,12 @@ export class RecorridoPage implements OnInit {
 
   graficarRecorrido() {
     let dataD: any = [];
+    let pointBackgroundColors: any = [];
+    let pointRadius:any = [];
     this.cantPas = this.count;
+
     for (let i: number = 0; i < this.cantPas; i++) {
-
-
       dataD.push({ x: this.datos[i].x, y: this.datos[i].y });
-
     }
 
     dataD = [
@@ -68,6 +68,23 @@ export class RecorridoPage implements OnInit {
       { x: 2, y: 2 },
       { x: 2, y: 0 }
     ];
+
+
+    for (let i: number = 0; i < dataD.length; i++) {
+      if (i == 0) {
+        pointBackgroundColors[i] = 'blue';
+        pointRadius[i] = 7;
+      } else if (i == (dataD.length - 1)) {
+        pointBackgroundColors[i] = 'red';
+        pointRadius[i] = 7;
+      } else {
+        pointBackgroundColors[i] = 'black';
+        pointRadius[i] = 3;
+      }
+
+
+    }
+
 
     let maxX: number = 0;
     let minX: number = 0;
@@ -97,10 +114,11 @@ export class RecorridoPage implements OnInit {
         datasets: [{
           label: 'Recorrido (cm)',
           data: dataD,
-          borderColor: 'black',
-          borderWidth: 1,
-          pointRadius: 5,
+          borderColor: 'green',
+          borderWidth: 3,
+          pointRadius: pointRadius,
           pointHoverRadius: 5,
+          pointBackgroundColor: pointBackgroundColors,
           fill: false,
           showLine: true
         }]
@@ -115,7 +133,7 @@ export class RecorridoPage implements OnInit {
             },
             gridLines: {
               color: '#888',
-              drawOnChartArea: false
+              drawOnChartArea: true
             }
           }],
           yAxes: [{
@@ -125,12 +143,14 @@ export class RecorridoPage implements OnInit {
             },
             gridLines: {
               color: '#888',
-              drawOnChartArea: false
+              drawOnChartArea: true
             }
           }]
         }
       }
     });
+
+
   }
 
 }
